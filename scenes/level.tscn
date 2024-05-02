@@ -1,14 +1,101 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl87all2vfe3i"]
+[gd_scene load_steps=19 format=3 uid="uid://cl87all2vfe3i"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_w4hoy"]
 [ext_resource type="Texture2D" uid="uid://ftapsvqtydxr" path="res://graphics/stars/Space_Stars2.png" id="1_y2lf0"]
 [ext_resource type="PackedScene" uid="uid://dmlmly071fp65" path="res://scenes/player.tscn" id="2_i3o1d"]
+[ext_resource type="Texture2D" uid="uid://ll6830cifhrg" path="res://graphics/stars.png" id="4_by7ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o06g1"]
 size = Vector2(26, 879.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t0wa"]
 size = Vector2(491, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ete5m"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bngo3"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(11, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s0e7"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(22, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ecjx"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(33, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhd4d"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(44, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqefk"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(55, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdqj4"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(66, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xighq"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(77, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiy02"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(88, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vavwv"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(99, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwm2t"]
+atlas = ExtResource("4_by7ou")
+region = Rect2(110, 0, 11, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hpwmx"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ete5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bngo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s0e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ecjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhd4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqefk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdqj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xighq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiy02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vavwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwm2t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_w4hoy")
@@ -50,6 +137,92 @@ shape = SubResource("RectangleShape2D_7t0wa")
 autostart = true
 
 [node name="Meteors" type="Node2D" parent="."]
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Stars"]
+texture_filter = 1
+position = Vector2(256, 636)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hpwmx")
+autoplay = "default"
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
