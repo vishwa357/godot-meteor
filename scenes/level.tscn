@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://cl87all2vfe3i"]
+[gd_scene load_steps=22 format=3 uid="uid://cl87all2vfe3i"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_w4hoy"]
 [ext_resource type="Texture2D" uid="uid://ftapsvqtydxr" path="res://graphics/stars/Space_Stars2.png" id="1_y2lf0"]
 [ext_resource type="PackedScene" uid="uid://dmlmly071fp65" path="res://scenes/player.tscn" id="2_i3o1d"]
 [ext_resource type="Texture2D" uid="uid://ll6830cifhrg" path="res://graphics/stars.png" id="4_by7ou"]
 [ext_resource type="PackedScene" uid="uid://ceeyiemhdm2iq" path="res://scenes/ui.tscn" id="5_18a0e"]
+[ext_resource type="AudioStream" uid="uid://c6hwbdhage1yg" path="res://audio/vibrating-thud-39536.mp3" id="6_de5lx"]
+[ext_resource type="AudioStream" uid="uid://sli7wh3nrayg" path="res://audio/titan-fall-music-31964.mp3" id="7_u1nu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o06g1"]
 size = Vector2(26, 879.5)
@@ -233,6 +235,14 @@ sprite_frames = SubResource("SpriteFrames_hpwmx")
 autoplay = "default"
 
 [node name="UI" parent="." groups=["ui"] instance=ExtResource("5_18a0e")]
+
+[node name="MeteorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_de5lx")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_u1nu6")
+volume_db = -21.333
+autoplay = true
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

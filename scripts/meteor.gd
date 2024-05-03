@@ -5,7 +5,8 @@ extends Area2D
 var speed2 : int
 var dir_x : int
 
-signal collision
+signal collision_meteor_player
+signal collision_meteor_laser
 
 func _ready():
 	var rng := RandomNumberGenerator.new()
@@ -24,9 +25,10 @@ func _process(delta):
 	position += Vector2(dir_x, 2) * speed2 * delta
 
 func _on_body_entered(_body:Node2D):
-	collision.emit()
+	collision_meteor_player.emit()
 
 
 func _on_area_entered(area:Area2D):
+	collision_meteor_laser.emit()
 	area.queue_free();
 	queue_free()

@@ -8,7 +8,6 @@ func _ready():
 	$MarginContainer/Label.text = str(score)
 
 func set_health(amount):
-	print("ui: " + str(amount))
 	for child in $MarginContainer2/HBoxContainer.get_children():
 		child.queue_free()
 	for i in amount:

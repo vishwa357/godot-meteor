@@ -20,20 +20,22 @@ func _ready():
 		n -= 1
 
 func _on_meteor_collision():
-	print("meteor collision in level")
+	$MeteorSound.play()
 	health -= 1
 	get_tree().call_group("ui", "set_health", health)
 	if health <= 0:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
+func _on_meteor_laser_collision():
+	$MeteorSound.play()
+
 func _on_meteor_timer_timeout():
-	print("meteor..")
 	var meteor = meteor_scene.instantiate()
 	$Meteors.add_child(meteor)
-	meteor.connect("collision", _on_meteor_collision)
+	meteor.connect("collision_meteor_player", _on_meteor_collision)
+	meteor.connect("collision_meteor_laser", _on_meteor_laser_collision)
 
 func _on_player_laser(pos : Vector2):
-	print("laser " + str(pos))
 	var laser = laser_scene.instantiate()
 	$Laser.add_child(laser)
 	laser.position = pos
