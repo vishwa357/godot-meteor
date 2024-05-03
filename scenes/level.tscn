@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://cl87all2vfe3i"]
+[gd_scene load_steps=20 format=3 uid="uid://cl87all2vfe3i"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_w4hoy"]
 [ext_resource type="Texture2D" uid="uid://ftapsvqtydxr" path="res://graphics/stars/Space_Stars2.png" id="1_y2lf0"]
 [ext_resource type="PackedScene" uid="uid://dmlmly071fp65" path="res://scenes/player.tscn" id="2_i3o1d"]
 [ext_resource type="Texture2D" uid="uid://ll6830cifhrg" path="res://graphics/stars.png" id="4_by7ou"]
 [ext_resource type="PackedScene" uid="uid://ceeyiemhdm2iq" path="res://scenes/ui.tscn" id="5_18a0e"]
-[ext_resource type="PackedScene" uid="uid://c3a1pklyjctw4" path="res://scenes/game_over.tscn" id="6_hh45c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o06g1"]
 size = Vector2(26, 879.5)
@@ -234,9 +233,6 @@ sprite_frames = SubResource("SpriteFrames_hpwmx")
 autoplay = "default"
 
 [node name="UI" parent="." groups=["ui"] instance=ExtResource("5_18a0e")]
-
-[node name="GameOver" parent="." instance=ExtResource("6_hh45c")]
-visible = false
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
