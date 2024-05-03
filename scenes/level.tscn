@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cl87all2vfe3i"]
+[gd_scene load_steps=21 format=3 uid="uid://cl87all2vfe3i"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_w4hoy"]
 [ext_resource type="Texture2D" uid="uid://ftapsvqtydxr" path="res://graphics/stars/Space_Stars2.png" id="1_y2lf0"]
 [ext_resource type="PackedScene" uid="uid://dmlmly071fp65" path="res://scenes/player.tscn" id="2_i3o1d"]
 [ext_resource type="Texture2D" uid="uid://ll6830cifhrg" path="res://graphics/stars.png" id="4_by7ou"]
+[ext_resource type="PackedScene" uid="uid://ceeyiemhdm2iq" path="res://scenes/ui.tscn" id="5_18a0e"]
+[ext_resource type="PackedScene" uid="uid://c3a1pklyjctw4" path="res://scenes/game_over.tscn" id="6_hh45c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o06g1"]
 size = Vector2(26, 879.5)
@@ -99,6 +101,7 @@ animations = [{
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_w4hoy")
+metadata/_edit_lock_ = true
 
 [node name="bg" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -106,13 +109,17 @@ texture_repeat = 2
 position = Vector2(320, 640)
 scale = Vector2(20, 20)
 texture = ExtResource("1_y2lf0")
+metadata/_edit_lock_ = true
 
 [node name="Laser" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_i3o1d")]
 scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
 
 [node name="Borders" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
 collision_layer = 4
@@ -137,8 +144,10 @@ shape = SubResource("RectangleShape2D_7t0wa")
 autostart = true
 
 [node name="Meteors" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Stars" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stars"]
 texture_filter = 1
@@ -223,6 +232,11 @@ position = Vector2(256, 636)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_hpwmx")
 autoplay = "default"
+
+[node name="UI" parent="." groups=["ui"] instance=ExtResource("5_18a0e")]
+
+[node name="GameOver" parent="." instance=ExtResource("6_hh45c")]
+visible = false
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

@@ -5,6 +5,8 @@ extends Area2D
 var speed2 : int
 var dir_x : int
 
+signal collision
+
 func _ready():
 	var rng := RandomNumberGenerator.new()
 	var tex = meteor_sprites[rng.randi_range(0, meteor_sprites.size() - 1)]
@@ -18,9 +20,8 @@ func _ready():
 	speed2 = speed + rng.randi_range(-5, 5) * 10
 	dir_x = rng.randi_range(-1, 1)
 
-
 func _process(delta):
 	position += Vector2(dir_x, 2) * speed2 * delta
 
-func _on_body_entered(body:Node2D):
-	print("body entered: " + body.name)
+func _on_body_entered(_body:Node2D):
+	collision.emit()

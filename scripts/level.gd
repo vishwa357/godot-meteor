@@ -2,8 +2,11 @@ extends Node2D
 
 var meteor_scene: PackedScene = load("res://scenes/meteor.tscn")
 var laser_scene: PackedScene = load("res://scenes/laser.tscn")
+var health : int = 3
 
 func _ready():
+	get_tree().call_group("ui", "set_health", health)
+
 	var n : int = $Stars.get_child_count() - 1
 	var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 	var w = get_viewport().get_visible_rect().size[0]
@@ -16,10 +19,18 @@ func _ready():
 		star.global_position = Vector2(rng.randi_range(0, w), rng.randi_range(0, h))
 		n -= 1
 
+func _on_meteor_collision():
+	print("meteor collision in level")
+	health -= 1
+	get_tree().call_group("ui", "set_health", health)
+	if health <= 0:
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
 func _on_meteor_timer_timeout():
 	print("meteor..")
 	var meteor = meteor_scene.instantiate()
 	$Meteors.add_child(meteor)
+	meteor.connect("collision", _on_meteor_collision)
 
 func _on_player_laser(pos : Vector2):
 	print("laser " + str(pos))
